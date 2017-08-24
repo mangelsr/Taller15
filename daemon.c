@@ -28,7 +28,7 @@ int main(int argc, char** argv){
 
     umask(0);
 
-    int fd = open("./log_cpu.log", O_WRONLY|O_CREAT|O_TRUNC);
+    int fd = open("./log_cpu.log", O_RDWR|O_CREAT|O_TRUNC);
     
     setsid();
 
