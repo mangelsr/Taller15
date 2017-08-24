@@ -4,6 +4,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
+#include <string.h>
 
 int main(int argc, char** argv){
 
@@ -39,7 +40,7 @@ int main(int argc, char** argv){
         void *buf = malloc(sizeof(void *)*100);
         FILE *fp = popen("top -bn2 | grep '%Cpu' | tail -1", "r");
         fread(buf, 100, 1, fp);
-        write(fd, buf, 100);
+        write(fd, buf, strlen(buf));
     }
     
     return (0);
